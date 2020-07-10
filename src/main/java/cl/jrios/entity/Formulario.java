@@ -1,6 +1,6 @@
 package cl.jrios.entity;
 
-public class FormularioDesafio {
+public class Formulario {
 	String nombre;
 	String apellidoPaterno;
 	String apellidoMaterno;

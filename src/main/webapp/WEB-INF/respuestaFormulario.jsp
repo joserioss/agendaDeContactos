@@ -17,7 +17,7 @@
 	<div class="card text-center">
 		<div class="card-header">Formulario</div>
 		<div class="card-body">
-			<h5 class="card-title">Agregar persona</h5>
+			<h5 class="card-title">Agregar contacto</h5>
 			<form action='<c:url value = "/contactManager/desafio"/>'
 				method="get" id="frmSend" modelAttribute="formulario">
 
@@ -44,20 +44,37 @@
 	</div>
 
 	<div class="card text-center">
-		<div class="card-header">Lista de agregados</div>
+		<div class="card-header">Lista de contactos</div>
 		<div class="card-body">
 			<h5 class="card-title">Personas agregadas</h5>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Nombre</th>
+						<th scope="col">Direcion</th>
+						<th scope="col">Telefono</th>
+						<th scope="col">Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:if test="${respuestasFormulario != null}">
 
-			<c:if test="${respuestasFormulario != null}">
-				<ul>
-					<c:forEach var="respuestasFormulario"
-						items="${respuestasFormulario}">
-						<li><c:out value="${respuestasFormulario}" /></li>
-					</c:forEach>
-				</ul>
-			</c:if>
+						<c:forEach var="resp" items="${respuestasFormulario}">
+							<tr>
+								<td>${resp['nombre']} ${resp['apellidoPaterno']}
+									${resp['apellidoMaterno']}</td>
+								<td>${resp['direccion']}</td>
+								<td>${resp['telefono']}</td>
+								<td><a href="#" class="btn btn-primary">Eliminar</a></td>
 
-			<a href="#" class="btn btn-primary">Eliminar</a>
+							</tr>
+						</c:forEach>
+
+
+					</c:if>
+				</tbody>
+			</table>
+			
 		</div>
 	</div>
 

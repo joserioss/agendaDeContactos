@@ -10,7 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cl.jrios.entity.FormularioDesafio;
+import cl.jrios.entity.Formulario;
 
 @Controller
 @RequestMapping("/contactManager")
@@ -18,7 +18,7 @@ public class FormularioController {
 
 	private static final Logger logger = LoggerFactory.getLogger(FormularioController.class);
 
-	List<String> datos;
+	List<Formulario> datos;
 
 	public FormularioController() {
 		datos = new ArrayList<>();
@@ -26,13 +26,13 @@ public class FormularioController {
 
 //	Solucion para no mostrar los null al inicio de contactManager
 	@RequestMapping(value = "/")
-	public String inicio(ModelMap modelo, @ModelAttribute("formulario") FormularioDesafio formulario) {
+	public String inicio(ModelMap modelo, @ModelAttribute("formulario") Formulario formulario) {
 		return "respuestaFormulario";
 	} 
 	
 //	Se realiza al apretar el boton agregar	
 	@RequestMapping(value = "/desafio")
-	public String porHacer(ModelMap modelo, @ModelAttribute("formulario") FormularioDesafio formulario) {
+	public String porHacer(ModelMap modelo, @ModelAttribute("formulario") Formulario formulario) {
 
 		logger.info("FORM: " + formulario);
 
@@ -42,11 +42,17 @@ public class FormularioController {
 			String apellidoMat = formulario.getApellidoMaterno();
 			String direccion = formulario.getDireccion();
 			String telefono = formulario.getTelefono();
+			
+			formulario.setNombre(nombre);
+			formulario.setApellidoPaterno(apellidoPat);
+			formulario.setApellidoMaterno(apellidoMat);
+			formulario.setDireccion(direccion);
+			formulario.setTelefono(telefono);
 
-			String formularioCompleto = "Nombre: " + nombre + " " + apellidoPat + " " + apellidoMat + ", Direccion: "
-					+ direccion + ", telefono: " + telefono;
+//			String formularioCompleto = "Nombre: " + nombre + " " + apellidoPat + " " + apellidoMat + ", Direccion: "
+//					+ direccion + ", telefono: " + telefono;
 
-			datos.add(formularioCompleto);
+			datos.add(formulario);
 			modelo.put("respuestasFormulario", datos);
 		}
 
