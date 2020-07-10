@@ -15,10 +15,10 @@
 </head>
 <body>
 	<div class="card text-center">
-		<div class="card-header">Agregar persona</div>
+		<div class="card-header">Formulario</div>
 		<div class="card-body">
-			<h5 class="card-title">Formulario</h5>
-			<form action='<c:url value = "/llenarFormulario/desafio"/>'
+			<h5 class="card-title">Agregar persona</h5>
+			<form action='<c:url value = "/contactManager/desafio"/>'
 				method="get" id="frmSend" modelAttribute="formulario">
 
 				<div class="form-group">

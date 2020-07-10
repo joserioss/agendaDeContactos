@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cl.jrios.entity.FormularioDesafio;
 
 @Controller
-@RequestMapping("/llenarFormulario")
+@RequestMapping("/contactManager")
 public class FormularioController {
 
 	private static final Logger logger = LoggerFactory.getLogger(FormularioController.class);
@@ -24,6 +24,13 @@ public class FormularioController {
 		datos = new ArrayList<>();
 	}
 
+//	Solucion para no mostrar los null al inicio de contactManager
+	@RequestMapping(value = "/")
+	public String inicio(ModelMap modelo, @ModelAttribute("formulario") FormularioDesafio formulario) {
+		return "respuestaFormulario";
+	} 
+	
+//	Se realiza al apretar el boton agregar	
 	@RequestMapping(value = "/desafio")
 	public String porHacer(ModelMap modelo, @ModelAttribute("formulario") FormularioDesafio formulario) {
 
