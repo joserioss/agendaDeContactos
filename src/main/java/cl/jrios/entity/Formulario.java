@@ -1,11 +1,22 @@
 package cl.jrios.entity;
 
 public class Formulario {
-	String nombre;
-	String apellidoPaterno;
-	String apellidoMaterno;
-	String direccion;
-	String telefono;
+
+	private int id;
+
+	private String nombre;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
+	private String direccion;
+	private String telefono;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getNombre() {
 		return nombre;

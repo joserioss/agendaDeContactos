@@ -50,6 +50,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th scope="col">ID</th>
 						<th scope="col">Nombre</th>
 						<th scope="col">Direcion</th>
 						<th scope="col">Telefono</th>
@@ -61,11 +62,12 @@
 
 						<c:forEach var="resp" items="${respuestasFormulario}">
 							<tr>
+								<td>${resp['id']}</td>
 								<td>${resp['nombre']} ${resp['apellidoPaterno']}
 									${resp['apellidoMaterno']}</td>
 								<td>${resp['direccion']}</td>
 								<td>${resp['telefono']}</td>
-								<td><a href="#" class="btn btn-primary">Eliminar</a></td>
+								<td><a href='<c:out value = "/contactManager/delete?id=${resp.getId()}"></c:out>' class="btn btn-primary">Eliminar</a></td>
 
 							</tr>
 						</c:forEach>
