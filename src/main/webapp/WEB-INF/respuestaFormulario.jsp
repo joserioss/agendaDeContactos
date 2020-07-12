@@ -18,8 +18,8 @@
 		<div class="card-header">Formulario</div>
 		<div class="card-body">
 			<h5 class="card-title">Agregar contacto</h5>
-			<form action='<c:url value = "/contactManager/desafio"/>'
-				method="get" id="frmSend" modelAttribute="formulario">
+			<form action='<c:url value = "/contactManager/"/>' method="post"
+				id="frmSend" modelAttribute="formulario">
 
 				<div class="form-group">
 					<input type="text" id="nombre" name="nombre"
@@ -67,7 +67,9 @@
 									${resp['apellidoMaterno']}</td>
 								<td>${resp['direccion']}</td>
 								<td>${resp['telefono']}</td>
-								<td><a href='<c:out value = "/contactManager/delete?id=${resp.getId()}"></c:out>' class="btn btn-primary">Eliminar</a></td>
+								<td><a
+									href='<c:out value = "/contactManager/delete?id=${resp.getId()}"></c:out>'
+									class="btn btn-primary">Eliminar</a></td>
 
 							</tr>
 						</c:forEach>
@@ -76,7 +78,7 @@
 					</c:if>
 				</tbody>
 			</table>
-			
+
 		</div>
 	</div>
 
